@@ -1,0 +1,28 @@
+<ion-side-menus enable-menu-with-back-views="false">
+<ion-side-menu-content edge-drag-threshold="true" drag-content="false">     
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+  <ion-side-menu side="right">
+    <ion-content>
+      <ion-list>
+        <ion-item class="profile">
+          <div class="user" ng-style="{'background-image':'url('+user.picture+')'}" ng-click="toogleSidemenu();" menu-close></div>
+        </ion-item>
+        <ion-item menu-close class="item item-text-wrap item-icon-left" href="#/app/home" ng-click="toogleSidemenu();">
+          <i class="icon ion-ios-home"></i>
+          <div class="item-text-side-menu" >{{"home" | translate}} </div>
+        </ion-item>
+        <ion-item class="item item-text-wrap item-icon-left" >
+          <i class="icon ion-ios-world"></i>
+            <select id="language" name="language" ng-model="user.language" ng-change="languageChanged()">
+              <option value="en">{{"english" | translate}}</option>
+              <option value="fr">{{"french" | translate}}</option>              
+            </select>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+      <ion-footer-bar class="bar-assertive">
+        <ion-item menu-close  class="logout"  ng-click="logOut()">{{'logout' | translate}}</ion-item>
+      </ion-footer-bar>
+  </ion-side-menu>
+</ion-side-menus>

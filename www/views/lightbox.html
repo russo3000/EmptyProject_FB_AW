@@ -1,0 +1,15 @@
+<div class="modal image-modal transparent" ng-click="closeModal()">
+	<ion-slide-box on-slide-changed="slideChanged(index)" show-pager="true">
+		<ion-slide ng-repeat="image in Item.images track by $index " id="li_slide_image_{{$index}}">
+			<img ng-src="{{image.image_name}}" id="slide_image_{{$index}}" class="fullscreen-image" onerror="ImgError(this)"/>
+		</ion-slide>
+	</ion-slide-box>
+</div>
+
+ <script language="JavaScript" type="text/javascript">
+  function ImgError(source)
+  {
+    source.src = "icons/apple-icon-precomposed.png";
+    return true;
+  }
+</script>

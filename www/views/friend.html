@@ -1,0 +1,85 @@
+
+<ion-view class="home-view">
+
+<ion-nav-bar class="bar-positive">
+      <ion-nav-back-button ng-click="showFriends()">
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="right">               
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <center>
+    <div class="friend-title">                    
+          <img class="friend-name-img" ng-src="{{currentFriend.picture}}">
+          <span class="friend-name">{{currentFriend.name}}</span>
+        </div>       
+    </center>
+  <ion-content class="padding" delegate-handle="mainScroll">
+
+     <div id="wrapperV">
+        <div id="scrollerV" >
+          <ul id="scrollerList">
+            <li ng-repeat="category in currentFriend.categories | filter:categoryHasVisibleItems track by $index" ng-if="category.is_public">                  
+              <div  class="item-input">
+                <div class="category-wrapper">
+                  <a href="#" class="category-link" ng-click="editCategory({{category.id}})">
+                  <label class="item-input">            
+                    <div class="categoryName" id="category_{{category.id}}" >
+                      <h1>
+                        {{category.name}}        
+                      </h1>
+                    </div>
+                  </label>
+                </a>
+                </div>        
+              </div>              
+              <div class="category"  id="wrapper_friend{{$index}}">
+                <div id="scroller{{$index}}" style="width:{{((category.items.length +1) * 160) + 300}}px">
+                  <ul>
+                    <li ng-repeat="item in category.items | orderBy:'-' | filter: query track by $index " item-height="140" item-width="140" ng-if="item.is_public" >
+                      <div class="photo" id="image_wrapper_{{category.id}}_{{$index}}">
+                        <a href="#/app/friendsitem/{{item.id}}">
+                          <div class="thumbnail" >  
+                            <img ng-src="{{item.default_image.image_name}}" src="icons/apple-icon-precomposed.png" alt="{{ item.name }} Photo" class="portrait" onerror="ImgError(this)" on-hold="onHold('{{$index}}','{{category.id}}')">
+                          </div>
+                        </a>
+                        <p>{{item.name | limitTo: 39}} {{item.name.length > 39 ? '&hellip;' : ''}}</p>                        
+                      </div>
+                    </li>
+                    <li ng-if="category.items.length == 0">
+                      <div class="photo"><button class="button button-icon ion-android-alert" > {{'this_category_doesnt_have_any_items_yet' | translate}}.</button>
+                      </div>
+                    </li>                    
+                  </ul>
+                </div>
+              </div>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+
+      <div id="AllCategoriesPrivate" ng-if="AllCategoriesPrivate">
+        {{'there_are_no_available_categories' | translate}}
+      </div>
+
+
+      <script language="JavaScript" type="text/javascript">
+      function ImgError(source)
+      {
+        source.src = "icons/apple-icon-precomposed.png";
+        return true;
+      }
+      </script>
+
+
+
+
+  </ion-content>
+  
+</ion-view>

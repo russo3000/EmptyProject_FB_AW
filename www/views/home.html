@@ -1,0 +1,98 @@
+<ion-view class="home-view" view-title="">
+
+<ion-nav-bar class="bar bar-positive" >
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      
+      <ion-nav-buttons side="right">                       
+      </ion-nav-buttons>
+</ion-nav-bar>
+  <div class="bar tem-input-inset bar-positive">    
+        <div class="mainHeader"> 
+          <div id="button_side_menu">                     
+              <button id="btn_settings" class="itemButton button button-icon ion-ios-gear active" menu-toggle="right" ng-click="toogleSidemenu()" > </button>
+          </div>
+          <div id="button_friends">                     
+              <button id="btn_friends" class="itemButton button button-icon ion-ios-people active" ng-click="showHomeTab('friends')" > </button>
+          </div>              
+          <div id="button_home_main">          
+            <button id="btn_home_main" class="itemButton button button-icon ion-earth" ng-click="showHomeTab('home_main')" > </button>   
+          </div>
+        </div> 
+  </div>
+
+  <ion-content class="padding" delegate-handle="mainScroll">
+    <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+    <div class="bar item-input-inset bar-light connection-status connection-status-home">    
+        <div id="not-connected" class="bar bar-assertive" ng-click="notConnected()">
+          <div class="connection-status-text">{{'working_offline' | translate}}</div>
+        </div>        
+        <div id="connected"  class="bar bar-balanced" ng-click="connected()">
+          <div class="connection-status-text">{{'working_online' | translate}}</div>
+        </div>
+        <div id="connecting" class="bar bar-balanced" ng-click="connecting()">
+          <div class="connection-status-text"><div class="connecting">{{'connecting' | translate}} <img src="img/loading.gif" height="20px" class="loading" ></div> </div>
+        </div>    
+    </div>
+  <div id="home_main">
+    <div id="wrapperV" >
+        <div id="scrollerV" >
+          <ul id="scrollerList">            
+            <li ng-repeat="category in user.categories | filter:categoryHasVisibleItems track by $index" >                  
+              <div  class="item-input">
+                <div class="category-wrapper">
+                  <a href="#" class="category-link" ng-click="editCategory({{category.id}})">
+                  <label class="item-input">            
+                    <div class="categoryName" id="category_{{category.id}}" >
+                      <h1>
+                        {{category.name}}        
+                      </h1>
+                    </div>
+                  </label>
+                </a>
+                </div>        
+              </div>              
+              <div class="category"  id="wrapper{{$index}}">
+                <div id="scroller{{$index}}" style="width:{{((category.items.length +1) * 160) + 300}}px">
+                  <ul>
+                    <li ng-repeat="item in category.items | orderBy:'-' | filter: query track by $index " item-height="140" item-width="140" >
+                      <div class="photo" id="image_wrapper_{{category.id}}_{{$index}}">
+                        <a href="#/app/item/{{item.id}}">                                                  
+                          <p>{{item.name | limitTo: 39}} {{item.name.length > 39 ? '&hellip;' : ''}}</p>
+                        </a>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="photo"><button class="button button-icon ion-plus-circled" id="current_category_{{category.id}}" current-category-id="{{category.id}}" ng-click="addNewItem('current_category_{{category.id}}')"  > {{'add_a_new_item_to_this_category' | translate}}</button>
+                      </div>
+                    </li>                    
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </div>
+
+  <div id="friends">
+     <div id="friends-list" class="list" ng-repeat="friend in user.friends">
+        <a class="item item-avatar" href="#/app/friends/{{friend.user_id}}" ng-click="removeNotifications({{friend.user_id}})">
+          <img ng-src="{{friend.picture}}">
+          <h2>{{friend.name}}</h2>
+          <span class="badge badge-assertive" ng-if="friend.notified">1</span>
+          <p><b>{{'categories' | translate}}:</b> {{friend.category_names}}</p>
+        </a>
+    </div>
+  </div>
+
+      <script language="JavaScript" type="text/javascript">
+      function ImgError(source)
+      {
+        source.src = "icons/apple-icon-precomposed.png";
+        return true;
+      }
+      </script>
+
+  </ion-content>  
+</ion-view>

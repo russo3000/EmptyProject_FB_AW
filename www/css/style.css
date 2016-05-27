@@ -1,0 +1,218 @@
+/* Empty. Add your own CSS if you like */
+
+.welcome-view {
+  background-color: #387ef5; }
+  .welcome-view .top-content {
+    height: 66%; }
+    .welcome-view .top-content .app-copy {
+      text-align: center;
+      padding-top: 13vh; }
+    .welcome-view .top-content .app-logo {
+      font-size: 60px;
+      font-family: sans-serif;
+      font-weight: 600;
+      color: #FFFFFF;
+      letter-spacing: 8px;
+      text-transform: uppercase; }
+    .welcome-view .top-content .app-tagline {
+      font-size: 16px;
+      margin-top: 0px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.95); }
+  .welcome-view .bottom-content {
+    height: 34%; }
+  
+
+.title
+{
+  width: 45%;
+  font-weight: bold;
+}
+
+.scroll
+{
+  height: 100%;
+}
+.left
+{
+  float:left;
+}
+
+.right
+{
+  float: right;
+}
+
+.hidden
+{
+  display: none;
+}
+.max-width
+{
+  width: 100%;
+}
+
+.nowrap
+{
+  white-space: nowrap;
+}
+
+
+.logo
+{
+  color: #1c8aeb;
+  font-size: 2rem;
+  font-weight: 200;
+  padding-top: 30px;
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border: 1px solid #1c8aeb;
+  background-color: #fff;
+}
+.logo-img
+{
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border: 2px solid #fff;
+  background-color: #fff;
+}
+.profile
+{
+	background-color: #f1f1f1;
+	padding: 30px;
+	text-align: center;
+}
+.user {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border: 2px solid #fff;
+}
+.logout
+{
+  top:1px;
+  right:0;
+  margin:0; 
+  width: 100%;
+  position: fixed;    
+  text-align: center;  
+}
+
+#language
+{
+  font-size: 16px;
+  width: 100%;  
+  border: 0px;
+  margin-left: -7px;
+  background-color: #fff;
+}
+
+#my-item
+{
+  height: 100%;  
+  position: relative;
+}
+
+
+#editItemName
+{
+  width: 90%;
+  z-index: 1000;
+  position: absolute;
+  top: -3px;  
+}
+
+
+
+
+#main_home
+{
+  display: block;
+}
+
+#friends
+{
+  display: none;
+}
+
+#button_side_menu
+{
+float: left;
+}
+
+.mainHeader
+{
+  width: 100% !important; 
+  text-align: center;  
+}
+
+.connection-status
+{
+  display: none;
+  border-top: 1px solid #fff;
+  width: 105%;
+  left: -10px;
+  padding: 0;
+  height: 30px;
+}
+
+.connection-status-home
+{
+  position: relative;
+  top:14px;
+}
+
+.connection-status-text
+{
+  text-align: center;
+  width: 100%;
+}
+
+#not-connected, #connected, #connecting
+{
+  display: none;
+}
+
+.connecting
+{
+  top: -5px;
+  position: relative;
+}
+
+.loading
+{
+  top: 4px;
+  position: relative; 
+}
+
+ #button_home_main, #button_friends, #button_side_menu
+{
+  float: right;
+  width: 33%;
+  text-align: center;
+}
+
+.spacer
+{
+  width: 110%;
+  background-color: #36454F;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -5px;
+}

@@ -1,0 +1,27 @@
+
+<ion-view class="home-view" view-title="Friends">
+
+<ion-nav-bar class="bar-posiitive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">      
+      <button class="button button-icon button-clear ion-ios-people" ></button>  
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="right">
+       <button class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>        
+      </ion-nav-buttons>
+
+    </ion-nav-bar>
+  <ion-content class="padding" delegate-handle="mainScroll">
+    <div id="friends-list" class="list" ng-repeat="friend in user.friends">
+        <a class="item item-avatar" href="#/app/friends/{{friend.user_id}}" ng-click="removeNotifications({{friend.user_id}})">
+          <img ng-src="{{friend.picture}}">
+          <h2>{{friend.name}}</h2>
+          <span class="badge badge-assertive" ng-if="friend.notified">1</span>
+          <p><b>{{'categories' | translate}}:</b> {{friend.category_names}}</p>
+        </a>
+    </div>
+  </ion-content>
+</ion-view>

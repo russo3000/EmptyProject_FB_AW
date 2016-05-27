@@ -1,0 +1,68 @@
+<ion-view view-title="" hide-nav-bar="false" >
+
+
+<ion-nav-bar class="bar-positive">
+    <ion-nav-back-button>    
+    </ion-nav-back-button>
+  <ion-nav-buttons side="right">
+    
+    <div class="header-buttons">
+    <button class="itemButton button-border-a button button-icon ion-checkmark" ng-click="saveItem(true)"></button>    
+    <button class="itemButton button-border-a button button-icon ion-android-share-alt" ng-click="shareItem()" ng-if="!newItem"> </button>          
+    <button id="choose-img-btn" class="itemButton button button-icon ion-images" ng-click="imageSelection()"> </button>
+    <button class="itemButton button-border-b button button-icon ion-trash-b" ng-click="deleteItem()" ng-if="!newItem"> </button> 
+</div>
+
+  </ion-nav-buttons>
+</ion-nav-bar>
+
+ <div class="bar bar-subheader item-input-inset bar-stable">
+   <div id="editItemName" class="item-input-inset">
+          <label class="item-input-wrapper item-input-wrapper-bkg"> 
+            <i class="icon ion-android-create placeholder-icon"></i>
+            <input type="text" id="itemDataName"  ng-model="itemData.name" placeholder="Item Name" searchKey="TEST">
+          </label>          
+    </div>    
+  </div>
+
+
+  <div id="my-item">
+
+  <ion-content id="item-content" delegate-handle="example-scroller" elastic-header="example-elastic-header" overflow-scroll="false" has-bouncing="true" scrollbar-y="true">
+      <div id="part-1"> 
+        <div id="example-elastic-header" >          
+          <div class="add-images" ng-if="Item.images.length == 0">
+            <h1>{{'add_an_image' | translate}}</h1>
+            <button class="ItemCameraButton button button-icon ion-camera" ng-click="takePhoto()" >{{'photo' | translate}}</button>
+            <button class="ItemCameraButton button button-icon ion-images" ng-click="showGallery()" > {{'my_gallery' | translate}}</button>
+          </div>
+          
+        </div>
+
+        <div class="bar item-input-inset bar-light connection-status">
+            <div id="not-connected" class="bar bar-assertive" ng-click="notConnected()">
+              <div class="connection-status-text">{{'working_offline' | translate}}</div>
+            </div>        
+            <div id="connected"  class="bar bar-balanced" ng-click="connected()">
+              <div class="connection-status-text">{{'working_online' | translate}}</div>
+            </div>
+            <div id="connecting" class="bar bar-balanced" ng-click="connecting()">
+              <div class="connection-status-text">
+                <div class="connecting">{{'connecting' | translate}} <img src="img/loading.gif" height="20px" class="loading" ></div>
+              </div>
+            </div>
+        </div>
+
+        <div class="spacer">&nbsp;</div>
+            
+              <center>
+                <button class="itemButton button button-icon ion-arrow-up-c" style="font-size:100px" ng-click="scrollTop()"> </button><br>
+                <button class="itemButton button button-icon ion-ios-circle-filled" style="font-size:30px" ng-click="scrollTop()"> </button>
+                <button class="itemButton button button-icon ion-ios-circle-filled" style="font-size:30px" ng-click="scrollTop()"> </button>
+                <button class="itemButton button button-icon ion-ios-circle-filled" style="font-size:30px" ng-click="scrollTop()"> </button>
+              </center>               
+            </div>
+         
+  </ion-content>
+  </div>
+</ion-view>

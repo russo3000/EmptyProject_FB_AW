@@ -1,0 +1,28 @@
+<ion-view hide-nav-bar="true" cache-view="false" class="welcome-view" ng-style="{'background-image':'url(img/items/'+random+'.jpg)'}" ng-click="facebookSignIn()">
+  <ion-content scroll="false">   
+    
+    <div class="bar item-input-inset bar-light connection-status">
+        <div id="not-connected" class="bar bar-assertive" ng-click="notConnected()">
+          <div class="connection-status-text">{{'working_offline' | translate}}</div>
+        </div>        
+        <div id="connected"  class="bar bar-balanced" ng-click="connected()">
+          <div class="connection-status-text">{{'working_online' | translate}}</div>
+        </div>
+        <div id="connecting" class="bar bar-balanced" ng-click="connecting()">
+          <div class="connection-status-text">
+            <div class="connecting">{{'connecting' | translate}} <img src="img/loading.gif" height="20px" class="loading" ></div> 
+          </div>
+        </div>
+    </div>
+    <div class="top-content row">    
+      <div class="app-copy col col-top" >      
+        <h1 class="app-logo center">
+          <div class="logo-img" ng-style="{'background-image':'url(img/goby.png)'}" ></div>          
+        </h1>
+        <p class="logo">
+            GoBy
+          </p>        
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
