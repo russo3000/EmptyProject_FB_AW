@@ -1,3 +1,3 @@
-# GoBy with Facebook Native login with Ionic Framework
+# Empty Project with Facebook Native login, Amazon web services storage, with Ionic Framework
 
-This repository is to manage the GoBy Project
+
