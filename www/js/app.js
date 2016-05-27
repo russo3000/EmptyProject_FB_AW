@@ -6,9 +6,9 @@
 angular.module('starter', ['ionic', 'controllers', 'services','ngCordova','pascalprecht.translate'])
 
 .constant('config', {
-    FBappIdProd: '1663498527242562',
-    FBappIdSecret: '34acca6a5f91b6834b74941e71f1225d',
-    AWSIdentityPoolId: 'eu-west-1:f9c1658b-a4c9-4f5f-b3c9-eb1b264f96cf',
+    FBappIdProd: 'XXX',
+    FBappIdSecret: 'XXX',
+    AWSIdentityPoolId: 'XXX',
     isOnline: false
 })
 
